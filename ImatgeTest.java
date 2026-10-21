@@ -44,6 +44,11 @@ class ImatgeTest
 		assertEquals(img.getValue(0, 1),1,1.e-3);
 		assertEquals(img.getValue(1, 0),2,1.e-3);
 		assertEquals(img.getValue(1, 1),3,1.e-3);
+	}
+
+	@Test
+	void testCircularShifting()
+	{		
 
 		// Copiarem una imatge dins una imatge gran, amb desplaçament zero
 		
@@ -62,6 +67,16 @@ class ImatgeTest
 		}
 
 		// Copiarem una imatge dins una imatge gran, amb desplaçament incr_x=0, incr_y=1
+		
+		// Inicialitzem imgGran a zero
+		for(int i=0;i<3;++i)
+		{
+			for(int j=0;j<3;++j)
+			{
+				imgGran.setValue(i, j, 0);
+			}
+		}
+
 		
 		float [] values_0_1 = {	0,0,0,
 								0,1,0,

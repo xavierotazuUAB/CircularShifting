@@ -42,7 +42,7 @@ public class Imatge
 				int i_final = i+incr_y;
 				int j_final = j+incr_x;
 				
-				valors[i_final*nFiles+j_final] = img_input.getValue(i,j); 
+				valors[i_final*nColumnes+j_final] = img_input.getValue(i,j); 
 			}
 		}
 	}
