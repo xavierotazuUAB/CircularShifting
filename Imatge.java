@@ -30,6 +30,18 @@ public class Imatge
 		valors[fila*nColumnes + col] = value;
 	}
 
-	public void CircularShifting(Imatge ImgInput, int incr_x, int incr_y);
+	public void CircularShifting(Imatge img_input, int incr_x, int incr_y)
+	{
+		int nfil = img_input.getNFiles();
+		int ncol = img_input.getNCols();
+		
+		for(int i=0;i<nfil;++i)
+		{
+			for(int j=0;j<ncol;++j)
+			{
+				valors[i*nFiles+j] = img_input.getValue(i,j); 
+			}
+		}
+	}
 	
 }
