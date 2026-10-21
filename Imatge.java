@@ -72,8 +72,8 @@ public class Imatge
 		{
 			for(int j=0;j<ncol;++j)
 			{
-				int i_final = i+incr_y;
-				int j_final = j+incr_x;
+				int i_final = (i+incr_y) % nFiles;
+				int j_final = (j+incr_x) % nColumnes;
 				
 				valors[i_final*nColumnes+j_final] = img_input.getValue(i,j); 
 			}
