@@ -2,15 +2,17 @@ package CircularShifting;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ImatgeTest
 {
+	Imatge img;
 
-	@Test
-	void testConstructoriCrearImatge()
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		Imatge img = new Imatge();
+		img = new Imatge();
 				
 		img.CreaImatge(2, 2);
 		
@@ -19,6 +21,11 @@ class ImatgeTest
 		img.setValue(1, 0, 2);
 		img.setValue(1, 1, 3);
 		
+	}
+
+	@Test
+	void testConstructoriCrearImatge()
+	{		
 		assertEquals(img.getValue(0, 0),0);
 		assertEquals(img.getValue(0, 1),1);
 		assertEquals(img.getValue(1, 0),2);
