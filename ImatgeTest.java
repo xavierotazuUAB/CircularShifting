@@ -45,7 +45,7 @@ class ImatgeTest
 		assertEquals(img.getValue(1, 0),2,1.e-3);
 		assertEquals(img.getValue(1, 1),3,1.e-3);
 
-		// Copiarem una imatge dins una imatge gran
+		// Copiarem una imatge dins una imatge gran, amb desplaçament zero
 		
 		float [] values = {	0,1,0,
 							2,3,0,
@@ -60,6 +60,24 @@ class ImatgeTest
 				assertEquals(imgGran.getValue(i, j),values[i*3+j],1.e-3);
 			}
 		}
+
+		// Copiarem una imatge dins una imatge gran, amb desplaçament incr_x=0, incr_y=1
+		
+		float [] values_0_1 = {	0,0,0,
+								0,1,0,
+								2,3,0};
+		
+		imgGran.CircularShifting(img, 0, 1);
+		
+		for(int i=0;i<3;++i)
+		{
+			for(int j=0;j<3;++j)
+			{
+				assertEquals(imgGran.getValue(i, j),values_0_1[i*3+j],1.e-3);
+			}
+		}
+	
+	
 	}
 
 }
