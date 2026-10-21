@@ -108,16 +108,43 @@ class ImatgeTest
 								0,0,1,
 								0,2,3};
 		
+		imgGran.CircularShifting(img, 1, 1);
+		
+		for(int i=0;i<3;++i)
+		{
+			for(int j=0;j<3;++j)
+			{
+				assertEquals(imgGran.getValue(i, j),values_1_1[i*3+j],1.e-3);
+			}
+		}
+
+		// Copiarem una imatge dins una imatge gran, amb desplaçament incr_x=2, incr_y=1
+		
+		// Inicialitzem imgGran a zero
+		for(int i=0;i<3;++i)
+		{
+			for(int j=0;j<3;++j)
+			{
+				imgGran.setValue(i, j, 0);
+			}
+		}
+
+		
+		float [] values_2_1 = {	0,0,0,
+								1,0,0,
+								3,0,2};
+		
 		imgGran.CircularShifting(img, 0, 1);
 		
 		for(int i=0;i<3;++i)
 		{
 			for(int j=0;j<3;++j)
 			{
-				assertEquals(imgGran.getValue(i, j),values_0_1[i*3+j],1.e-3);
+				assertEquals(imgGran.getValue(i, j),values_2_1[i*3+j],1.e-3);
 			}
 		}
-	
+		
+		
 	}
 
 }
