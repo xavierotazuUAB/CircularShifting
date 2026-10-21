@@ -134,7 +134,7 @@ class ImatgeTest
 								1,0,0,
 								3,0,2};
 		
-		imgGran.CircularShifting(img, 0, 1);
+		imgGran.CircularShifting(img, 2, 1);
 		
 		for(int i=0;i<3;++i)
 		{
