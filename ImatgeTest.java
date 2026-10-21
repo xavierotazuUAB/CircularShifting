@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 
 class ImatgeTest
 {
-	Imatge img;
+	Imatge img, imgGran;
+	
 
 	@BeforeEach
 	void setUp() throws Exception
@@ -20,16 +21,45 @@ class ImatgeTest
 		img.setValue(0, 1, 1);
 		img.setValue(1, 0, 2);
 		img.setValue(1, 1, 3);
+
+		// Creem i inicialitzem una imatge gran amb valors 0
+		imgGran = new Imatge();
+		
+		imgGran.CreaImatge(3, 3);
+
+		for(int i=0;i<3;++i)
+		{
+			for(int j=0;j<3;++j)
+			{
+				imgGran.setValue(i, j, 0);
+			}
+		}
 		
 	}
 
 	@Test
 	void testConstructoriCrearImatge()
 	{		
-		assertEquals(img.getValue(0, 0),0);
-		assertEquals(img.getValue(0, 1),1);
-		assertEquals(img.getValue(1, 0),2);
-		assertEquals(img.getValue(1, 1),3);
+		assertEquals(img.getValue(0, 0),0,1.e-3);
+		assertEquals(img.getValue(0, 1),1,1.e-3);
+		assertEquals(img.getValue(1, 0),2,1.e-3);
+		assertEquals(img.getValue(1, 1),3,1.e-3);
+
+		// Copiarem una imatge dins una imatge gran
+		
+		float [] values = {	0,1,0,
+							2,3,0,
+							0,0,0};
+		
+		imgGran.CircularShifting(img, 0, 0);
+		
+		for(int i=0;i<3;++i)
+		{
+			for(int j=0;j<3;++j)
+			{
+				assertEquals(imgGran.getValue(i, j),values[i*3+j],1.e-3);
+			}
+		}
 	}
 
 }
