@@ -41,8 +41,8 @@ public class Imatge
 	public float getValue(int fila, int col)
 	{
 		// Precondicio
-		assert(fila>0 && fila<nFiles);
-		assert(col>0 && fila<nColumnes);
+		assert(fila>=0 && fila<nFiles);
+		assert(col>=0 && fila<nColumnes);
 		Invariant();
 
 		return valors[fila*nColumnes + col];
@@ -51,8 +51,8 @@ public class Imatge
 	public void setValue(int fila, int col, float value)
 	{
 		// Precondicio
-		assert(fila>0 && fila<nFiles);
-		assert(col>0 && fila<nColumnes);
+		assert(fila>=0 && fila<nFiles);
+		assert(col>=0 && fila<nColumnes);
 		Invariant();
 
 		valors[fila*nColumnes + col] = value;
