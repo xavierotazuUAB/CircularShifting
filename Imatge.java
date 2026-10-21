@@ -39,7 +39,10 @@ public class Imatge
 		{
 			for(int j=0;j<ncol;++j)
 			{
-				valors[i*nFiles+j] = img_input.getValue(i,j); 
+				int i_final = i+incr_y;
+				int j_final = j+incr_x;
+				
+				valors[i_final*nFiles+j_final] = img_input.getValue(i,j); 
 			}
 		}
 	}
